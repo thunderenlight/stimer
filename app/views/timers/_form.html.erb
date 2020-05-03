@@ -1,0 +1,57 @@
+<div class="row float-md-center">
+  
+</div><%= form_with(model: timer, local: true) do |form| %>
+  <% if timer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(timer.errors.count, "error") %> prohibited this timer from being saved:</h2>
+
+      <ul>
+      <% timer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="form-row justify-content-center">
+
+  <div class="field float-content-center
+  ">
+    <%= form.label :name %> <br>
+    <%= form.text_field :name, id: :timer_name , placeholder: 'Breadmaker'%>
+  </div>
+
+  <div class="field">
+    <%= form.label :instructions %><br>
+    <%= form.text_field :instruction, id: :timer_instruction, placeholder: 'Proof the dough' %>
+  </div>
+
+
+  <div class="field">
+    <%= form.label :phone_number %><br>
+    <%= form.text_field :phone_number, id: :timer_phone_number %>
+  </div>
+
+   <div class="form-group float-md-center">
+      <%= form.label :time, "Set Your Time", class: 'control-label' %>        
+      <div class="input-group date" id="datetimepicker2" data-target-input="nearest">
+        <%= form.text_field(:time, 
+          value: form.object.time ? form.object.time.localtime.strftime('%I:%M %p') : nil, 
+          class: "form-control datetimepicker-input", data: {target:"#datetimepicker2"}) %>
+        <div class="input-group-append" data-target="#datetimepicker2" data-toggle="datetimepicker">
+          <div class="input-group-text"><span class="fas fa-clock 7px"></span></div>
+        </div>
+      </div>
+    </div>
+
+
+  <div class="form-group float-md-center">
+    <%= form.label :time_zone %>
+    <%= form.time_zone_select :time_zone, ActiveSupport::TimeZone.all.sort, default: "Central Time (US & Canada)" %>
+  </div>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+</div>
+</div>
+    
+<% end %>

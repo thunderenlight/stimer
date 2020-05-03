@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @timer.name %>
+</p>
+
+<p>
+  <strong>Phone number:</strong>
+  <%= @timer.phone_number %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @timer.time %>
+</p>
+
+<%= link_to 'Edit', edit_timer_path(@timer) %> |
+<%= link_to 'Back', timers_path %>

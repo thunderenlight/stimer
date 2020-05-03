@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Timers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Instruction</th>
+      <th>Phone number</th>
+      <th>Time</th>
+      <th>Time created</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @timers.each do |timer| %>
+      <tr>
+        <td><%= link_to timer.id, timer_path(timer) %></td>
+        <td><%= timer.name %></td>
+        <td><%= timer.instruction %></td>
+        <td><%= timer.phone_number %></td>
+        <td><%= timer.time %></td>
+        <td><%= timer.created_at %></td>
+        <td><%= link_to 'Show', timer %></td>
+        <td><%= link_to 'Edit', edit_timer_path(timer) %></td>
+        <td><%= link_to 'Destroy',
+         timer,
+         method: :delete,
+         data: { confirm: 'Are you sure?' }, 
+         :class => 'btn btn-xs btn-danger'  %>
+           
+         </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Timer', new_timer_path %>

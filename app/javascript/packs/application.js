@@ -16,3 +16,18 @@
 // const imagePath = (name) => images(name, true)
 
 console.log('Hello World from Webpacker')
+require("@rails/ujs").start()
+require("turbolinks").start()
+require("@rails/activestorage").start()
+require("channels")
+require("moment")
+require("tempusdominus-bootstrap-4")
+import "bootstrap"
+import "../stylesheets/application"
+
+document.addEventListener("turbolinks:load", () => {
+  $('[data-toggle="tooltip"]').tooltip()
+  $('[data-toggle="popover"]').popover()
+  $('.toast').toast({ autohide: false })
+  $('#toast').toast('show')
+})

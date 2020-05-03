@@ -12,4 +12,20 @@
 //
 //= require rails-ujs
 //= require turbolinks
+//= require jquery
+//= require moment
+//= require tempusdominus-bootstrap-4.js
 //= require_tree .
+
+$(document).on('turbolinks:load', function() {
+	$('#datetimepicker2').datetimepicker({
+		format: 'LT',
+		stepping: 1,
+		icons: {
+			up: 'fas fa-arrow-up',
+			down: 'fas fa-arrow-down',
+			close: 'fas fa-times'
+		},
+		buttons: {showClose: true}
+
+	});
